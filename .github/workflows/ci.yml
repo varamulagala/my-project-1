@@ -39,7 +39,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t varamulagala/alarm_clock:latest .
+        run: docker build -t varamulagala/alarm_clock:${{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push varamulagala/alarm_clock:latest
+        run: docker push varamulagala/alarm_clock:${{ github.sha }}
